@@ -13,6 +13,11 @@ import de.uni_koeln.idh.converter.CONLData;
 import de.uni_koeln.idh.converter.CONLDataFile;
 import de.uni_koeln.idh.converter.Converter;
 
+/**
+ * Converts files of a specified directory from HIPE-format to a kind of CONLL-format.
+ * Token TAB Ner-Tag TAB starting line from source TAB end line from source (0 if == starting line) ENTER  
+ * @author jhermes
+ */
 public class ForwardConversionApp {
 
 	private static List<String> fileNames = new ArrayList<String>();

@@ -3,8 +3,18 @@ package de.uni_koeln.idh.converter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Converts HIPE-CLEF-items to CONLL-like items (forwards) and vice versa (ackwards)
+ * @author jhermes
+ */
 public class Converter {
 
+	/**
+	 * Converts HIPE-CLEF-items to CONLL-like items. Format of converted Data: 
+	 * Token TAB Ner-Tag TAB starting line from source TAB end line from source (0 if == starting line) ENTER  
+	 * @param clefDataFile Data to convert
+	 * @return converted Data
+	 */
 	public static CONLDataFile convertForward(CLEFDataFile clefDataFile) {
 		String fileName = clefDataFile.getFileName();
 		String newName = fileName.replace("HIPE", "CONLL");
@@ -37,6 +47,12 @@ public class Converter {
 		return toReturn;
 	}
 
+	/**
+	 * Converts CONLL-like data to HIPE-CLEF format.
+	 * @param conlDataFile Data to convert
+	 * @param originalFile Original HIPE-CLEF File
+	 * @return converted data
+	 */
 	public static CLEFDataFile convertBackwards(CONLDataFile conlDataFile, CLEFDataFile originalFile) {
 		List<CONLData> items = conlDataFile.getItems();
 

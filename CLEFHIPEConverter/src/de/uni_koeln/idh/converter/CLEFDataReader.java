@@ -7,6 +7,12 @@ import java.io.IOException;
 
 public class CLEFDataReader {
 	
+	/**
+	 * Reads HIPE_CLEF data from specified file to a CLEFDataFile 
+	 * @param inputFileName File to parse
+	 * @return CLEFDataFile with data from the specified file
+	 * @throws IOException
+	 */
 	public static CLEFDataFile readFile(String inputFileName) throws IOException {
 		CLEFDataFile toReturn = new CLEFDataFile(inputFileName);
 		BufferedReader in = new BufferedReader(new FileReader(new File(inputFileName)));
