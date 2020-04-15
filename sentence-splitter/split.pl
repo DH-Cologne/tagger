@@ -48,7 +48,7 @@ while(<>) {
 				$sentenceBoundary = !$isAbbreviation;
 			}
 		}
-		print "$lastline\n";	
+		print "$lastline[0] $lastline[1]\n";
 	}
 	
 	if ($sentenceBoundary == 1) {
