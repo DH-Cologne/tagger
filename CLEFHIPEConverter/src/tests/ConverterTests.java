@@ -17,7 +17,7 @@ import de.uni_koeln.idh.converter.Converter;
 
 class ConverterTests {
 
-	@Test
+	
 	void testReader() throws IOException {
 		CLEFDataFile data = CLEFDataReader.readFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
 		List<CLEFData> items = data.getItems();
@@ -26,7 +26,7 @@ class ConverterTests {
 		}
 	}
 	
-	@Test
+	
 	void testConverter() throws IOException {
 		CLEFDataFile data = CLEFDataReader.readFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
 		//List<CLEFData> items = data.getItems();
@@ -44,7 +44,7 @@ class ConverterTests {
 		System.out.println(convData.getFileName());
 	}
 	
-	@Test
+	
 	void testReverse() throws IOException {
 		CLEFDataFile data = CLEFDataReader.readFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
 		List<CLEFData> items3 = data.getItems();
