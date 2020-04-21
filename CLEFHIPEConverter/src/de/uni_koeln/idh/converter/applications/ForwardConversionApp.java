@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.uni_koeln.idh.converter.CLEFDataFile;
-import de.uni_koeln.idh.converter.CLEFDataReader;
+import de.uni_koeln.idh.converter.DataFileReaders;
 import de.uni_koeln.idh.converter.CONLData;
 import de.uni_koeln.idh.converter.CONLDataFile;
 import de.uni_koeln.idh.converter.Converter;
@@ -25,7 +25,7 @@ public class ForwardConversionApp {
 	public static void main(String[] args) throws IOException {
 		listFiles("training-v1.1");
 		for (String fileName : fileNames) {
-			CLEFDataFile clefDataFile = CLEFDataReader.readFile(fileName);
+			CLEFDataFile clefDataFile = DataFileReaders.readCLEFFile(fileName);
 			CONLDataFile conllDataFile = Converter.convertForward(clefDataFile);
 			String outputFileName = fileName.replace("training-v1.1", "training-v1.1-conv").replace("HIPE", "CONLL").replace("/Users/jhermes/workspace2017/CLEFCONLLConverter/", ""); 
 			System.out.println(outputFileName);

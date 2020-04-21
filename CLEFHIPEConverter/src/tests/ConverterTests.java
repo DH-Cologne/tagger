@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import de.uni_koeln.idh.converter.CLEFData;
 import de.uni_koeln.idh.converter.CLEFDataFile;
-import de.uni_koeln.idh.converter.CLEFDataReader;
+import de.uni_koeln.idh.converter.DataFileReaders;
 import de.uni_koeln.idh.converter.CONLData;
 import de.uni_koeln.idh.converter.CONLDataFile;
 import de.uni_koeln.idh.converter.Converter;
@@ -19,7 +19,7 @@ class ConverterTests {
 
 	
 	void testReader() throws IOException {
-		CLEFDataFile data = CLEFDataReader.readFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
+		CLEFDataFile data = DataFileReaders.readCLEFFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
 		List<CLEFData> items = data.getItems();
 		for (CLEFData clefData : items) {
 				System.out.println(clefData);
@@ -28,7 +28,7 @@ class ConverterTests {
 	
 	
 	void testConverter() throws IOException {
-		CLEFDataFile data = CLEFDataReader.readFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
+		CLEFDataFile data = DataFileReaders.readCLEFFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
 		//List<CLEFData> items = data.getItems();
 		CONLDataFile convData = Converter.convertForward(data);
 		List<CONLData> items = convData.getItems();
@@ -46,7 +46,7 @@ class ConverterTests {
 	
 	
 	void testReverse() throws IOException {
-		CLEFDataFile data = CLEFDataReader.readFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
+		CLEFDataFile data = DataFileReaders.readCLEFFile("training-v1.1/de/HIPE-data-v1.1-dev-de.tsv");
 		List<CLEFData> items3 = data.getItems();
 		for (CLEFData clefData : items3) {
 			//System.out.println(clefData);

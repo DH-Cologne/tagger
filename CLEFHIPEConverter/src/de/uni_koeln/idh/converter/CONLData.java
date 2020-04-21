@@ -30,6 +30,9 @@ public class CONLData {
 	 */
 	public CONLData() {
 		this.isSpace = true;
+		this.token="";
+		this.nerTag="";
+				
 	}
 	
 	/**
@@ -85,6 +88,14 @@ public class CONLData {
 			return "";
 		}
 		return token + "\t" + nerTag + "\t" + startLine + "\t" + endLine;
+	}
+
+	/**
+	 * Updates the nerTag toi the specified nerTag
+	 * @param nerTag updated nerTag
+	 */
+	public void updateNERTag(String nerTag) {
+		this.nerTag=nerTag;
 	}
 
 }

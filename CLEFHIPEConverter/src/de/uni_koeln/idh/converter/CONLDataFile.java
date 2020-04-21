@@ -1,6 +1,8 @@
 package de.uni_koeln.idh.converter;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,6 +41,14 @@ public class CONLDataFile {
 		return items.get(items.size()-1);
 	}
 	
-	
+	public void updateCONLDataFile(List<TaggerOutputData> tod){
+		Iterator<TaggerOutputData> todIter = tod.iterator();
+		for (CONLData conlData2 : items) {
+			TaggerOutputData next = todIter.next();
+			System.out.println(next.getToken());
+			System.out.println(conlData2.getToken());
+			//conlData2.updateNERTag(next.getNerTag());
+		}
+	}
 
 }
