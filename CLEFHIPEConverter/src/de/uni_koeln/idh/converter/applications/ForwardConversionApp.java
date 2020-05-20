@@ -23,13 +23,15 @@ public class ForwardConversionApp {
 	private static List<String> fileNames = new ArrayList<String>();
 	
 	public static void main(String[] args) throws IOException {
-		listFiles("training-v1.1");
+		listFiles("training-v1.2");
 		for (String fileName : fileNames) {
 			CLEFDataFile clefDataFile = DataFileReaders.readCLEFFile(fileName);
 			CONLDataFile conllDataFile = Converter.convertForward(clefDataFile);
-			String outputFileName = fileName.replace("training-v1.1", "training-v1.1-conv").replace("HIPE", "CONLL").replace("/Users/jhermes/workspace2017/CLEFCONLLConverter/", ""); 
+			String outputFileName = fileName.replace("training-v1.2", "training-v1.2-conv").replace("/HIPE", "/CONLL").replace("/Users/jhermes/workspace2017/CLEFCONLLConverter/", ""); 
+			File outputFile = new File(outputFileName);
+			//outputFile.createNewFile();
 			System.out.println(outputFileName);
-			PrintWriter out = new PrintWriter(new FileWriter(new File(outputFileName)));
+			PrintWriter out = new PrintWriter(new FileWriter(outputFile));
 			List<CONLData> items = conllDataFile.getItems();
 			for (CONLData conlData : items) {
 				out.println(conlData);
@@ -53,5 +55,7 @@ public class ForwardConversionApp {
 			}
 		}
 	}
-
+	///Users/jhermes/Documents/GitHub/tagger/CLEFCONLLConverter/training-v1.2-conv/de/CONLL-data-v1.2-dev-de.tsv
+	///Users/jhermes/Documents/GitHub/tagger/CLEFCONLLConverter/training-v1.2-conv/de/CONLL-data-v1.2-dev-de.tsv
+	///CLEFHIPEConverter/training-v1.2-conv/de/CONLL-data-v1.2-dev-de.tsv
 }
